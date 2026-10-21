@@ -1,0 +1,11 @@
+{
+  "name": "fjordova",
+  "version": "1.0.0",
+  "description": "Ask Gemini CLI about your Fortnox books and propose changes with company-level confirmation.",
+  "mcpServers": {
+    "fjordova": {
+      "httpUrl": "https://mcp.fjordova.ai/fortnox/mcp",
+      "trust": false
+    }
+  }
+}
