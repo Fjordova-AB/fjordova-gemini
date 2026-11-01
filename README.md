@@ -1,43 +1,51 @@
-# Fjordova.ai for Gemini CLI
+# Fjordova för Gemini CLI
 
-Ask Gemini CLI about your Fortnox books and let it propose changes. Nothing changes until the proposal is confirmed at your company's confirmation level. Sign in with your own Fortnox account.
+Fråga Gemini CLI om din bokföring och låt den föreslå ändringar via Fjordova. Förslag bekräftas enligt företagets bekräftelsenivå. Logga in med ditt eget Fortnox-konto.
 
-Published by Gobrand och Borggren AB (559605-3032). Support: support@fjordova.com.
+Utgivare: Gobrand och Borggren AB (559605-3032). Support: support@fjordova.com.
 
-## Install
+## System som stöds
 
-Install the extension in Gemini CLI:
+Den generella Fjordova-adressen ger i dag åtkomst till **Fortnox**. Spiris är ännu inte tillgängligt via den här adressen.
+
+Du behöver ett Fortnox-konto och åtkomst till det företag och de moduler du vill använda. Tillgängliga verktyg beror på företagets valda moduler, licenser och dina Fortnox-behörigheter.
+
+## Installera
+
+Installera tillägget i Gemini CLI:
 
 ```sh
 gemini extensions install https://github.com/Fjordova-AB/fjordova-gemini
 ```
 
-Restart Gemini CLI, then authenticate when prompted. You can also start sign-in with:
+Starta om Gemini CLI och logga in när du blir ombedd. Du kan också starta inloggningen med:
 
 ```text
 /mcp auth fjordova
 ```
 
-Select the intended Fortnox company. Available tools depend on your company's modules and your Fortnox permissions. Review proposed changes before confirming them.
+Välj rätt Fortnox-företag. Läs varje ändringsförslag innan du bekräftar det.
 
-## Try it
+## Prova
 
-- Which customer invoices are overdue, and what is the total outstanding amount?
-- Summarize the information available for my selected Fortnox company.
-- Propose a customer update and show me the preview before it is confirmed.
+- Vilka kundfakturor är förfallna och vad är det totala utestående beloppet?
+- Sammanfatta den tillgängliga informationen om mitt valda Fortnox-företag.
+- Föreslå en kunduppdatering och visa förhandsgranskningen innan den bekräftas.
 
-## Connection
+## Anslutning
 
-This extension connects to the hosted Fjordova MCP service at https://mcp.fjordova.ai/fortnox/mcp using OAuth. It contains no API keys, passwords or backend source code. Gemini CLI tool confirmations remain enabled.
+Tillägget ansluter till Fjordovas MCP-tjänst på `https://mcp.fjordova.ai/mcp` med OAuth. Det innehåller inga API-nycklar, lösenord eller serverkod.
 
-## Compatibility
+Har du redan en anslutning till `https://mcp.fjordova.ai/fortnox/mcp` behöver du göra en ny OAuth-anslutning för den generella adressen. Enbart ett URL-byte flyttar inte det tidigare samtycket. Kontrollera att den nya anslutningen fungerar innan du tar bort den gamla.
 
-This package targets Gemini CLI, not the Gemini consumer chat app. Gemini CLI installation, OAuth and tool calls have not yet been independently verified for this package. Gallery availability depends on Google's indexing and validation.
+## Kompatibilitet och verifieringsstatus
 
-## Links
+Paketet är avsett för Gemini CLI. Det installerar ingen koppling i Geminis vanliga chattapp. Installation, OAuth-inloggning och verktygsanrop behöver verifieras med den generella adressen. Tillgänglighet i tilläggsgalleriet beror på Googles indexering och validering; repot innebär ingen bekräftad gallerilistning.
 
-- [Website](https://fjordova.ai)
-- [Setup and support](https://fjordova.ai/koppla)
-- [Privacy policy](https://fjordova.ai/integritetspolicy)
-- [Service terms](https://fjordova.ai/villkor)
-- [Gemini CLI extensions](https://geminicli.com/docs/extensions/)
+## Länkar
+
+- [Webbplats](https://fjordova.ai)
+- [Anslutning och support](https://fjordova.ai/koppla)
+- [Integritetspolicy](https://fjordova.ai/integritetspolicy)
+- [Tjänstevillkor](https://fjordova.ai/villkor)
+- [Tillägg för Gemini CLI](https://geminicli.com/docs/extensions/)
