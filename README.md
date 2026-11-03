@@ -1,51 +1,55 @@
-# Fjordova för Gemini CLI
+# Fjordova for Gemini CLI
 
-Fråga Gemini CLI om din bokföring och låt den föreslå ändringar via Fjordova. Förslag bekräftas enligt företagets bekräftelsenivå. Logga in med ditt eget Fortnox-konto.
+Connect Gemini CLI to the business systems and data sources enabled for your Fjordova account. Ask questions about the data you can access and, where supported, prepare changes for review. Proposals follow your company's selected confirmation level before execution.
 
-Utgivare: Gobrand och Borggren AB (559605-3032). Support: support@fjordova.com.
+Publisher: Gobrand och Borggren AB (559605-3032). Support: support@fjordova.com.
 
-## System som stöds
+## Availability
 
-Den generella Fjordova-adressen ger i dag åtkomst till **Fortnox**. Spiris är ännu inte tillgängligt via den här adressen.
+The shared Fjordova MCP endpoint is `https://mcp.fjordova.ai/mcp`.
 
-Du behöver ett Fortnox-konto och åtkomst till det företag och de moduler du vill använda. Tillgängliga verktyg beror på företagets valda moduler, licenser och dina Fortnox-behörigheter.
+Fortnox is the existing production integration. Spiris and additional sources, including Bolagsverket, must not be considered available through this connector until production activation and end-to-end access have been verified. Installation, OAuth sign-in and tool calls from Gemini CLI through the shared endpoint are still awaiting verification.
 
-## Installera
+The tools you can use depend on your connected systems, selected company, enabled modules, licences and permissions. A shared URL does not grant access to an unconnected system.
 
-Installera tillägget i Gemini CLI:
+## Install
+
+The shared-endpoint candidate is in [pull request #1](https://github.com/Fjordova-AB/fjordova-gemini/pull/1), on branch `codex/generell-mcp-20261101`. Until that change is merged, the default installation below uses `main` and does not include this candidate. For candidate verification, use the PR branch and check its manifest before installation; a default installation is not evidence that the shared endpoint works.
+
+Install the extension in Gemini CLI:
 
 ```sh
 gemini extensions install https://github.com/Fjordova-AB/fjordova-gemini
 ```
 
-Starta om Gemini CLI och logga in när du blir ombedd. Du kan också starta inloggningen med:
+Restart Gemini CLI and sign in when prompted. You can also start authentication with:
 
 ```text
 /mcp auth fjordova
 ```
 
-Välj rätt Fortnox-företag. Läs varje ändringsförslag innan du bekräftar det.
+Check the selected company and granted access. The extension uses OAuth and contains no API keys, passwords or server code.
 
-## Prova
+If you have an older system-specific connection, create a new OAuth connection for the shared endpoint. Changing a URL does not transfer the previous authorization. Check that the new connection works before removing the old one.
 
-- Vilka kundfakturor är förfallna och vad är det totala utestående beloppet?
-- Sammanfatta den tillgängliga informationen om mitt valda Fortnox-företag.
-- Föreslå en kunduppdatering och visa förhandsgranskningen innan den bekräftas.
+## Try it
 
-## Anslutning
+- Which company and connected systems can I access?
+- Summarize the information available for my selected company.
+- If supported, prepare a proposed customer update and show the preview without executing it.
 
-Tillägget ansluter till Fjordovas MCP-tjänst på `https://mcp.fjordova.ai/mcp` med OAuth. Det innehåller inga API-nycklar, lösenord eller serverkod.
+Review each proposal before confirmation. Depending on your company's settings, the AI app may confirm a change after your approval in the conversation, or you may need to confirm it on a Fjordova page. Do not assume that every change requires a separate webpage confirmation.
 
-Har du redan en anslutning till `https://mcp.fjordova.ai/fortnox/mcp` behöver du göra en ny OAuth-anslutning för den generella adressen. Enbart ett URL-byte flyttar inte det tidigare samtycket. Kontrollera att den nya anslutningen fungerar innan du tar bort den gamla.
+## Compatibility and verification status
 
-## Kompatibilitet och verifieringsstatus
+This extension is for Gemini CLI. It does not install a connector in the Gemini chat app.
 
-Paketet är avsett för Gemini CLI. Det installerar ingen koppling i Geminis vanliga chattapp. Installation, OAuth-inloggning och verktygsanrop behöver verifieras med den generella adressen. Tillgänglighet i tilläggsgalleriet beror på Googles indexering och validering; repot innebär ingen bekräftad gallerilistning.
+This package is a candidate for the shared endpoint. Historical tests using a system-specific endpoint do not verify this connection. Availability in the extension gallery depends on Google's indexing and validation; the repository does not establish a gallery listing. See [STATUS.md](STATUS.md) for the current validation record.
 
-## Länkar
+## Links
 
-- [Webbplats](https://fjordova.ai)
-- [Anslutning och support](https://fjordova.ai/koppla)
-- [Integritetspolicy](https://fjordova.ai/integritetspolicy)
-- [Tjänstevillkor](https://fjordova.ai/villkor)
-- [Tillägg för Gemini CLI](https://geminicli.com/docs/extensions/)
+- [Website](https://fjordova.ai)
+- [Connection guide and support](https://fjordova.ai/koppla)
+- [Privacy policy](https://fjordova.ai/integritetspolicy)
+- [Terms of service](https://fjordova.ai/villkor)
+- [Gemini CLI extensions](https://geminicli.com/docs/extensions/)
